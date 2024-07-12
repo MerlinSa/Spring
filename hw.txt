@@ -1,0 +1,9 @@
+1. Из терминала или IDE создать простой maven-проект:
+1. 1 pom.xml
+1.  2 src/main/java/ru/gb/Main.java (Hello, world!)
+2.  *Собрать jar-file
+3.  *Запустить jar-file командой java jar myjar.jar
+
+Доп.задание: прочитать про maven: по возможности,
+
+прислать скриншот созданного проекта.
