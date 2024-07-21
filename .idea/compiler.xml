@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Homework2" />
         <module name="timesheet_sem3" />
+        <module name="timesheet" />
         <module name="Seminar_2" />
         <module name="Seminar_1" />
       </profile>
@@ -20,6 +21,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Homework2" options="-parameters" />
+      <module name="timesheet" options="-parameters" />
       <module name="timesheet_sem3" options="-parameters" />
     </option>
   </component>
