@@ -10,7 +10,7 @@ import java.util.Objects;
 @Component
 @Scope(ConfigurableListableBeanFactory.SCOPE_SINGLETON)
 public class Tablo {
-    private TicketNumberGenerator ticketNumberGenerator;
+    private final TicketNumberGenerator ticketNumberGenerator;
 
     public Tablo(TicketNumberGenerator ticketNumberGenerator) {
         Objects.requireNonNull(ticketNumberGenerator);

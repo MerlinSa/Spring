@@ -11,5 +11,5 @@ import java.util.UUID;
 //@Scope(ConfigurableListableBeanFactory.SCOPE_SINGLETON)
 public class TicketNumberGenerator {
     public String createNewNumber(){
-        return "Ticket#" + UUID.randomUUID().toString(); }
+        return "Ticket#" + UUID.randomUUID(); }
 }

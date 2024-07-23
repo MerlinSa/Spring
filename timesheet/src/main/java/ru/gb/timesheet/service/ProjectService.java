@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 @Service
 public class ProjectService {
-    private ProjectRepo projectRepo;
+    private final ProjectRepo projectRepo;
     public ProjectService(ProjectRepo projectRepo) {
         this.projectRepo = projectRepo;
     }
