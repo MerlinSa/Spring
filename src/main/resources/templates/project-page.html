@@ -10,21 +10,6 @@
 <body>
 id: <span th:text="${project.id}"></span> <br>
 name: <span th:text="${project.name}"></span> <br>
-<table>
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Затраченное время, мин</th>
-        <th>Дата</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="timesheets : ${timesheets}">
-        <td><span th:text="${timesheets.id}"></span></td>
-        <td><span th:text="${timesheets.minutes}"></span></td>
-        <td><span th:text="${timesheets.createdAt}"></span></td>
-    </tr>
-    </tbody>
-</table>
+
 </body>
 </html>

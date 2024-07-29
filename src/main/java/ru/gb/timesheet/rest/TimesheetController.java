@@ -1,6 +1,8 @@
 package ru.gb.timesheet.rest;
 
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,8 +14,8 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
+@Tag(name = "Контроллер заметок", description = "API для взаимодействия с сущностью заметки")
 @RequestMapping("/timesheets")
-
 public class TimesheetController {
 
   // GET - получить - не содержит тела
@@ -32,6 +34,7 @@ public class TimesheetController {
     this.service = service;
   }
 
+  @Operation(description = "Позволяет получить заметку по идентефикатору")
   @GetMapping("/{id}") // получить все
   public ResponseEntity<Timesheet> get(@PathVariable Long id) {
     return service.findById(id)
@@ -43,6 +46,8 @@ public class TimesheetController {
   // /timesheets?createdAtBefore=2024-07-09
   // /timesheets?createdAtAfter=2024-07-15
   // /timesheets?createdAtAfter=2024-07-15&createdAtBefore=2024-06-05
+
+  @Operation(description = "Позволяет получить все заметки")
   @GetMapping
   public ResponseEntity<List<Timesheet>> getAll(
     @RequestParam(required = false) LocalDate createdAtBefore,
@@ -54,7 +59,7 @@ public class TimesheetController {
   // client -> [spring-server -> ... -> TimesheetController
   //                          -> exceptionHandler(e)
   // client <- [spring-server <- ...
-
+  @Operation(description = "Позволяет создать заметку")
   @PostMapping // создание нового ресурса
   public ResponseEntity<Timesheet> create(@RequestBody Timesheet timesheet) {
     final Timesheet created = service.create(timesheet);
@@ -63,6 +68,7 @@ public class TimesheetController {
     return ResponseEntity.status(HttpStatus.CREATED).body(created);
   }
 
+  @Operation(description = "Позволяет удалить заметку по идентефикатору")
   @DeleteMapping("/{id}")
   public ResponseEntity<Void> delete(@PathVariable Long id) {
     service.delete(id);
@@ -75,5 +81,7 @@ public class TimesheetController {
   public ResponseEntity<?> handleNoSuchElementException(NoSuchElementException e) {
     return ResponseEntity.notFound().build();
   }
+
+
 
 }
